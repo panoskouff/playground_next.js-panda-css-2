@@ -20,7 +20,7 @@ export const ViewportCover: React.FC<Props> = ({
       <Positioned
         inset='24px'
         // @todo create background element
-        additional={{
+        css={{
           backgroundColor: 'backgroundSecondary',
           borderRadius: '16px',
           height: '100%',
