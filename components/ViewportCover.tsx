@@ -17,9 +17,9 @@ export const ViewportCover: React.FC<Props> = ({
   return (
     <Box width='100%' height='100%' position='relative' {...rest}>
       <Box color='blue'>test</Box>
+      // @todo create background element
       <Positioned
         inset='24px'
-        // @todo create background element
         css={{
           backgroundColor: 'backgroundSecondary',
           borderRadius: '16px',

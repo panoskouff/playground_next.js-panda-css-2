@@ -1,6 +1,10 @@
-import { styled, HTMLStyledProps } from "../styled-system/jsx";
+import { styled, HTMLStyledProps } from '../styled-system/jsx';
 
-type PositionedProps = HTMLStyledProps<"div">;
+type PositionedProps = Pick<
+  HTMLStyledProps<'div'>,
+  'top' | 'right' | 'bottom' | 'left' | 'inset' | 'position'
+> &
+  HTMLStyledProps<'div'>;
 
 export const Positioned: React.FC<PositionedProps> = ({
   children,
@@ -8,8 +12,8 @@ export const Positioned: React.FC<PositionedProps> = ({
 }) => (
   <styled.div
     {...rest}
-    position={rest.position ?? "absolute"}
-    inset={rest.inset ?? "inset"}
+    position={rest.position ?? 'absolute'}
+    inset={rest.inset ?? 0}
   >
     {children}
   </styled.div>
