@@ -1,24 +1,20 @@
 import { styled, HTMLStyledProps } from '../styled-system/jsx';
 
-import { PropertyValue } from '../styled-system/types/prop-type';
-
-type PositionedProps = {
-  mode?: PropertyValue<'position'>;
-  additional?: HTMLStyledProps<'div'>;
-} & Pick<
+type PositionedProps = Pick<
   HTMLStyledProps<'div'>,
-  'top' | 'right' | 'bottom' | 'left' | 'inset'
+  'top' | 'right' | 'bottom' | 'left' | 'inset' | 'position'
 > &
-  React.HTMLAttributes<HTMLDivElement>;
+  HTMLStyledProps<'div'>;
 
 export const Positioned: React.FC<PositionedProps> = ({
   children,
-  mode = 'absolute',
-  inset = 0,
-  additional,
   ...rest
 }) => (
-  <styled.div position={mode} inset={inset} {...additional} {...rest}>
+  <styled.div
+    {...rest}
+    position={rest.position ?? 'absolute'}
+    inset={rest.inset ?? 0}
+  >
     {children}
   </styled.div>
 );
