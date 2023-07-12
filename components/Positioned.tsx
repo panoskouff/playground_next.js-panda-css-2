@@ -1,10 +1,14 @@
 import { styled, HTMLStyledProps } from '../styled-system/jsx';
 
-type PositionedProps = Pick<
-  HTMLStyledProps<'div'>,
-  'top' | 'right' | 'bottom' | 'left' | 'inset' | 'position'
-> &
-  HTMLStyledProps<'div'>;
+// @todo do I need to omit properties like 'color' from React.HTMLAttributes<HTMLDivElement> ?
+
+type PositionedProps = Merge<
+  React.HTMLAttributes<HTMLDivElement>,
+  Pick<
+    HTMLStyledProps<'div'>,
+    'top' | 'right' | 'bottom' | 'left' | 'inset' | 'position' | 'css'
+  >
+>;
 
 export const Positioned: React.FC<PositionedProps> = ({
   children,
